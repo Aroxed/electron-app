@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+  <title>Example</title>
+</head>
+<body>  
+  <p id='data'>Data is loading... </p>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+	async function getData() {
+		let p = document.querySelector('#data');	
+		var result = await axios('/get-data/'); 
+		var timeout = await new Promise(() => setTimeout(() => { 
+		p.innerHTML = result.data['message']}, 3000)); 
+	}
+	getData();
+  </script>
+</body>
+</html>  
