@@ -4,15 +4,24 @@
 </head>
 <body>  
   <p id='data'>Data is loading... </p>
+  <p id='datetime'>Data is loading... </p>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
 	async function getData() {
 		let p = document.querySelector('#data');	
-		var result = await axios('/get-data/'); 
-		var timeout = await new Promise(() => setTimeout(() => { 
+		let result = await axios('/get-data/'); 
+		let timeout = await new Promise(() => setTimeout(() => { 
 		p.innerHTML = result.data['message']}, 3000)); 
 	}
+	async function getDateTime() { 
+		let p = document.querySelector('#datetime');	
+		let result = await axios('/get-datetime/'); 
+		let timeout = await new Promise(() => setTimeout(() => { 
+		p.innerHTML = result.data['message']
+		}, 3000));  
+	}
 	getData();
+	getDateTime();
   </script>
 </body>
 </html>  

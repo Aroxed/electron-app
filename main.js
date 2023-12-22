@@ -11,7 +11,9 @@ function initExpress() {
     app.get('/get-data', function (req, res) {
         res.send({ 'message': 'Greetings from NodeJS!' });
     });
-
+    app.get('/get-datetime', function (req, res) {
+        res.send({ 'message': new Date() });
+    });
     app.listen(5000);
 }
 
